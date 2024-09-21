@@ -1,7 +1,13 @@
+import { RouterProvider } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+
+import { routes } from "./routes.tsx";
+
 export const App = () => {
   return (
-    <div>
-      <div>Test App</div>
-    </div>
+    <>
+      <ToastContainer autoClose={2000} pauseOnHover={true} theme="loght" />
+      <RouterProvider router={routes} />
+    </>
   );
 };
