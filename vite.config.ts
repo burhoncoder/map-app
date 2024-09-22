@@ -24,25 +24,25 @@ export default defineConfig({
         orientation: "portrait",
         icons: [
           {
-            src: "/android-chrome-192x192.png",
+            src: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Pleiades_large.jpg",
             sizes: "192x192",
             type: "image/png",
             purpose: "favicon",
           },
           {
-            src: "/android-chrome-512x512.png",
+            src: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Pleiades_large.jpg",
             sizes: "512x512",
             type: "image/png",
             purpose: "favicon",
           },
           {
-            src: "/apple-touch-icon.png",
+            src: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Pleiades_large.jpg",
             sizes: "180x180",
             type: "image/png",
             purpose: "apple touch icon",
           },
           {
-            src: "/maskable_icon.png",
+            src: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Pleiades_large.jpg",
             sizes: "512x512",
             type: "image/png",
             purpose: "any maskable",
