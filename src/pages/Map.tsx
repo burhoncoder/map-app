@@ -1,5 +1,5 @@
-import { MapContainer } from "../features/create-map";
+import { MapWidget } from "../widgets";
 
 export const Map = () => {
-  return <MapContainer />;
+  return <MapWidget />;
 };

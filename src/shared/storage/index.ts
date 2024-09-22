@@ -6,7 +6,9 @@ export class Storage<Schema extends DBSchema> {
 
   constructor(databaseName: string, storeName: StoreNames<Schema>) {
     this.dbWrapper = this.initDB(databaseName, storeName);
-    this.dbWrapper.catch(() => {
+
+    this.dbWrapper.catch(err => {
+      console.log(err);
       toast.error("There is an error in database operation");
     });
   }

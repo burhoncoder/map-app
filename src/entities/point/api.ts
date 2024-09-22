@@ -11,11 +11,19 @@ export const pointsApi = {
     const persistedPoints = await database.getAll(STORE_NAME);
     if (persistedPoints.length > 0) {
       return persistedPoints;
-    } else return import("../../shared/data/points.json").then(result => result.coordinates);
+    } else {
+      const points = await import("../../shared/data/points.json");
+
+      points.coordinates.forEach(point => {
+        database.add("coordinates", point, point.id);
+      });
+
+      return points.coordinates;
+    }
   },
 
   updatePoint: async (point: IPoint): Promise<void> => {
     const database = await pointsStorage.dbWrapper;
-    await database.put(STORE_NAME, point);
+    await database.put(STORE_NAME, point, point.id);
   },
 };

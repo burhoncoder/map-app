@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { Map, View } from "ol";
 import { XYZ } from "ol/source";
 import { Tile as TileLayer } from "ol/layer";
@@ -16,7 +16,12 @@ import GeolocationIconDisabled from "../../shared/icons/geo-location-disabled.sv
 
 import "ol/ol.css";
 
-export const useRenderMap = () => {
+export interface CreateMapProps {
+  onPointClick: (point: IPoint) => void;
+  renderUpdateModal: (fn: () => void) => React.ReactNode;
+}
+
+export const useRenderMap = (onPointClick: CreateMapProps["onPointClick"]) => {
   const mapRef = useRef<HTMLDivElement | null>(null);
 
   const initMap = (points: IPoint[]) => {
@@ -48,6 +53,7 @@ export const useRenderMap = () => {
       const feature = new Feature({
         geometry: point,
         name: marker.details,
+        pointObject: marker,
       });
 
       const markerStyle = new Style({
@@ -67,7 +73,8 @@ export const useRenderMap = () => {
       });
 
       if (feature) {
-        alert(feature.get("name"));
+        const point = feature.get("pointObject") as IPoint;
+        onPointClick(point);
       }
     });
     mapObj.addLayer(vectorLayer);

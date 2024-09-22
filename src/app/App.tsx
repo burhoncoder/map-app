@@ -6,7 +6,7 @@ import { routes } from "./routes.tsx";
 export const App = () => {
   return (
     <>
-      <ToastContainer autoClose={2000} pauseOnHover={true} theme="loght" />
+      <ToastContainer autoClose={2000} pauseOnHover={true} theme="colored" />
       <RouterProvider router={routes} />
     </>
   );
